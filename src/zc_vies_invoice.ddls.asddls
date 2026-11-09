@@ -12,7 +12,14 @@ define root view entity ZC_VIES_INVOICE
                 purpose: #STANDARD, 
                 type: #IDENTIFICATION_REFERENCE, 
                 label: 'Invoice details', 
-                position: 10 }]
+                position: 10 },
+                
+              { id: 'AdminData', 
+                purpose: #STANDARD, 
+                type: #FIELDGROUP_REFERENCE, 
+                targetQualifier: 'AdminGroup', 
+                label: 'Administrative Data', 
+                position: 20 }]
 
   @UI.hidden: true
   key InvoiceId,
@@ -33,10 +40,10 @@ define root view entity ZC_VIES_INVOICE
   
   @UI.lineItem:       [{ position: 40, label: 'Amount LC' }]
   @UI.identification: [{ position: 40, label: 'Amount LC' }]
-  Amount,
+  AmountLC,
   
   @UI.identification: [{ position: 41, label: 'Curreny LC' }]
-  Currency,
+  CurrencyLC,
   
   @UI.lineItem:       [{ position: 50, label: 'Amount EUR (API)' }]
   @UI.identification: [{ position: 50, label: 'Amount EUR (API)' }]
@@ -55,9 +62,13 @@ define root view entity ZC_VIES_INVOICE
   @UI.identification: [{ position: 80 }]
   Description,
   
+  @UI.fieldGroup: [{ qualifier: 'AdminGroup', position: 10, label: 'Created by' }]
   CreatedBy,
+  @UI.fieldGroup: [{ qualifier: 'AdminGroup', position: 20, label: 'Created at' }]
   CreatedAt,
+  @UI.fieldGroup: [{ qualifier: 'AdminGroup', position: 30, label: 'Modif. by' }]
   ModifiedBy,
+  @UI.fieldGroup: [{ qualifier: 'AdminGroup', position: 40, label: 'Modif. at' }]
   ModifiedAt,
   /* Associations */
   _Vendor

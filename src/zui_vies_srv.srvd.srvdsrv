@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service Definition for VIES integration'
+define service ZUI_VIES_SRV {
+  expose ZC_VIES_VENDOR  as Vendor;
+  expose ZC_VIES_INVOICE as Invoice;
+}

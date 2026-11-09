@@ -8,17 +8,21 @@ define root view entity Zi_vies_invoice as select from zvies_invoice
   key invoice_id  as InvoiceId,
   vendor_id       as VendorId,
   invoice_number  as InvoiceNo,
-  amount_lc       as Amount,
-  currency_lc     as Currency,
+  amount_lc       as AmountLC,
+  currency_lc     as CurrencyLC,
   amount_eur      as AmountEur,
   currency_eur    as CurrencyEur,
   invoice_date    as InvoiceDate,
   dc_indicator    as DcIndicator,
   status          as Status,
   description     as Description,
+  @Semantics.user.createdBy: true
   created_by      as CreatedBy,
+  @Semantics.systemDateTime.createdAt: true
   created_at      as CreatedAt,
+  @Semantics.user.localInstanceLastChangedBy: true
   modified_by     as ModifiedBy,
+  @Semantics.systemDateTime.localInstanceLastChangedAt: true
   modified_at     as ModifiedAt,
   _Vendor
 }

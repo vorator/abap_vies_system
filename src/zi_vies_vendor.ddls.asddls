@@ -10,8 +10,12 @@ define root view entity ZI_VIES_VENDOR as select from zvies_vendor
   vendor_type   as VendorType,
   vat_number    as VatNumber,
   vies_status   as ViesStatus,
+  @Semantics.user.createdBy: true
   created_by    as CreatedBy,
+  @Semantics.systemDateTime.createdAt: true
   created_at    as CreatedAt,
+  @Semantics.user.localInstanceLastChangedBy: true
   modified_by   as ModifiedBy,
+  @Semantics.systemDateTime.localInstanceLastChangedAt: true
   modified_at   as ModifiedAt
 }

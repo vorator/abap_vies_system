@@ -12,7 +12,15 @@ define root view entity ZC_VIES_VENDOR
     purpose: #STANDARD,
     type: #IDENTIFICATION_REFERENCE,
     label: 'Vendor details',
-    position: 10 }]
+    position: 10 },
+    
+    { id: 'AdminData', 
+      purpose: #STANDARD, 
+      type: #FIELDGROUP_REFERENCE, 
+      targetQualifier: 'AdminGroup', 
+      label: 'Administrative Data', 
+      position: 20 }]
+    
   
   @UI.selectionField: [{ position: 10 }]
   @UI.lineItem:       [{ position: 10, label: 'Vendor No' }]
@@ -35,9 +43,13 @@ define root view entity ZC_VIES_VENDOR
   @UI.identification: [{ position: 50, label: 'VIES status' }]
   ViesStatus,
   
+  @UI.fieldGroup: [{ qualifier: 'AdminGroup', position: 10, label: 'Created by' }]
   CreatedBy,
+  @UI.fieldGroup: [{ qualifier: 'AdminGroup', position: 20, label: 'Created at' }]
   CreatedAt,
+  @UI.fieldGroup: [{ qualifier: 'AdminGroup', position: 30, label: 'Modif. by' }]
   ModifiedBy,
+  @UI.fieldGroup: [{ qualifier: 'AdminGroup', position: 40, label: 'Modif. at' }]
   ModifiedAt
   
 }
