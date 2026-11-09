@@ -1,0 +1,32 @@
+managed implementation in class zbp_i_vies_vendor unique;
+strict ( 2 );
+
+define behavior for ZI_VIES_VENDOR alias Vendor
+persistent table zvies_vendor
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  create ( authorization : global );
+  update;
+  delete;
+
+  field ( readonly ) ViesStatus, CreatedBy, CreatedAt, ModifiedBy, ModifiedAt;
+  field ( mandatory : create, readonly : update ) VendorId;
+  field ( mandatory ) VendorName, CountryCode, VatNumber;
+
+  validation validatesVIES on save { field CountryCode, VatNumber; create; update; }
+
+  mapping for zvies_vendor {
+    VendorId    = vendor_id;
+    VendorName  = vendor_name;
+    CountryCode = country_code;
+    VendorType  = vendor_type;
+    VatNumber   = vat_number;
+    ViesStatus  = vies_status;
+    CreatedBy   = created_by;
+    CreatedAt   = created_at;
+    ModifiedBy  = modified_by;
+    ModifiedAt  = modified_at;
+  }
+}

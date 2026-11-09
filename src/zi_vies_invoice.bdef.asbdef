@@ -1,0 +1,39 @@
+managed implementation in class zbp_i_vies_invoice unique;
+strict ( 2 );
+
+define behavior for Zi_vies_invoice alias Invoice
+persistent table zvies_invoice
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  create ( authorization : global );
+  update;
+  delete;
+
+  field ( numbering: managed, readonly ) InvoiceId;
+  field ( readonly ) AmountEur, CurrencyEur, Status, CreatedBy, CreatedAt, ModifiedBy, ModifiedAt;
+  field ( mandatory ) InvoiceNo, VendorId, Amount, Currency, InvoiceDate;
+
+  validation validateVendorVies on save { field VendorId; create; update; }
+
+  determination convertToEur on save { field Amount, Currency, InvoiceDate; create; update; }
+
+  mapping for zvies_invoice {
+    InvoiceId   = invoice_id;
+    InvoiceNo   = invoice_number;
+    VendorId    = vendor_id;
+    Amount      = amount_lc;
+    Currency    = currency_lc;
+    AmountEur   = amount_eur;
+    CurrencyEur = currency_eur;
+    InvoiceDate = invoice_date;
+    DcIndicator = dc_indicator;
+    Status      = status;
+    Description = description;
+    CreatedBy   = created_by;
+    CreatedAt   = created_at;
+    ModifiedBy  = modified_by;
+    ModifiedAt  = modified_at;
+  }
+}
