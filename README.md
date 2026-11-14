@@ -18,12 +18,12 @@ This solution strictly adheres to SAP's Clean Core principles, leveraging a Mana
 * **Integration Layer:** A decoupled, reusable global utility class acting as an HTTP client. It handles SSL/network boundaries, HTTP headers, and JSON-to-ABAP parsing using the XCO framework.
 
 ## 📸 Showcase
-#1. Fiori Elements UI (OData V4 & Draft State)
+1. Fiori Elements UI (OData V4 & Draft State)
 <img width="1916" height="614" alt="image" src="https://github.com/user-attachments/assets/bcaefd0e-7051-43ce-956d-b0292e322a6c" />
 
 <img width="1919" height="561" alt="image" src="https://github.com/user-attachments/assets/8466921d-23fc-45de-98e9-709e7f18f154" />
 
-###2. Business Logic Implementation (Eclipse ADT)
+2. Business Logic Implementation (Eclipse ADT)
 <img width="3839" height="1053" alt="image" src="https://github.com/user-attachments/assets/d0860846-d142-4de0-b4db-69c4f3a562ad" />
 
 ##🛠️ Key Features Implemented
